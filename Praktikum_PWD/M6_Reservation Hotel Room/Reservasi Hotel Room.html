@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="id" lang="id">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+    <title>Reservation Hotel Room</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <h1>Reservation Hotel Room</h1>
+
+    <form action="" method="post">
+      <fieldset>
+        <legend>Personal Data</legend>
+
+        <div class="form-group">
+          <label>1. Name</label>
+          <input type="text" name="name" />
+        </div>
+
+        <div class="form-group">
+          <label>2. Gender</label>
+          <input type="text" name="gender" />
+        </div>
+
+        <div class="form-group">
+          <label>3. Email Address</label>
+          <input type="text" name="email" />
+        </div>
+
+        <div class="form-group">
+          <label>4. Telp Number</label>
+          <input type="text" name="telp" />
+        </div>
+      </fieldset>
+
+      <p class="section-title">Reservation Room Form</p>
+
+      <div class="form-group">
+        <label>1. Reservation Name</label>
+        <input type="text" name="reservator" />
+      </div>
+
+      <div class="form-group">
+        <label>2. Booking Date</label>
+        <input type="text" name="booking" />
+      </div>
+
+      <div class="form-group">
+        <label>3. Room Type</label>
+        <select name="roomtype">
+          <option>Deluxe</option>
+          <option>Superior</option>
+          <option>Standard</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>4. Bed Type</label>
+        <select name="bedtype">
+          <option>Single bed</option>
+          <option>Double bed</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>5. Breakfast</label>
+        <div class="radio-group">
+          <input type="radio" name="breakfast" value="with" checked="checked" /> With Breakfast
+          <input type="radio" name="breakfast" value="without" /> Without Breakfast
+        </div>
+      </div>
+
+      <fieldset>
+        <legend>Payment</legend>
+
+        <div class="form-group">
+          <label>1. Check-in Date</label>
+          <input type="text" name="checkin" />
+        </div>
+
+        <div class="form-group">
+          <label>2. Check-out Date</label>
+          <input type="text" name="checkout" />
+        </div>
+
+        <div class="form-group">
+          <label>3. Payment Method</label>
+          <select name="payment">
+            <option>Cash</option>
+            <option>Credit Card</option>
+          </select>
+        </div>
+      </fieldset>
+
+      <input type="submit" value="Submit" />
+    </form>
+  </body>
+</html>
