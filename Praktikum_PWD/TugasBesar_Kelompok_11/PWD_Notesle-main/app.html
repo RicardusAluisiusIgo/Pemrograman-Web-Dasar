@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>NotesApp — My Notes</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="grid-bg">
+    <header class="topbar">
+      <div class="brand">
+        <!-- tombol profil -->
+        <button id="profileBtn" class="profile-btn" title="Profil">
+          <img id="profileAvatar" src="assets/avatar.jpeg" alt="avatar" />
+        </button>
+        <div class="brand-text">
+          <div class="brand-title">Notesle</div>
+        </div>
+      </div>
+
+      <div class="searchbar">
+        <input id="searchInput" placeholder="Cari catatan..." />
+      </div>
+
+      <div class="actions">
+        <button class="iconbtn" id="themeToggle" title="Toggle theme">🌙</button>
+        <button class="iconbtn logout" id="logoutBtn" title="Logout">Log out</button>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="row" style="margin: 8px 0 12px">
+        <button id="tabActive" class="filter-btn active">📒 Catatan</button>
+        <button id="tabArchived" class="filter-btn">🗂️ Arsip</button>
+        <button id="tabTrash" class="filter-btn">🗑️ Sampah</button>
+      </div>
+
+      <section class="composer card">
+        <input id="noteTitle" placeholder="Judul..." />
+        <textarea id="noteBody" placeholder="Tulis catatan..." rows="3"></textarea>
+
+        <div class="row">
+          <button id="addNoteBtn">Simpan</button>
+          <button id="gpsBtn" class="secondary">📍 Ambil Lokasi</button>
+          <button class="secondary" id="autosaveBadge">Autosave aktif</button>
+
+          <div class="chips">
+            <span class="badge green" id="gpsBadge" style="display: none">Lokasi tersimpan</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="notesGrid" class="notes-grid"></section>
+    </main>
+
+    <!-- ============ BUAT MODAL EDIT ============ -->
+    <div class="modal-backdrop hide" id="editModal">
+      <div class="modal card">
+        <div class="modal-title">
+          <h3>Edit Catatan</h3>
+          <button class="iconbtn" onclick="tutupModal('editModal')">✕</button>
+        </div>
+        <form id="editForm">
+          <input type="hidden" id="editNoteId" />
+          <label>Judul</label>
+          <input id="editNoteTitle" required />
+          <label>Isi</label>
+          <textarea id="editNoteBody" rows="5" required></textarea>
+          <div class="row" style="justify-content: flex-end; margin-top: 8px">
+            <button type="submit">Update</button>
+            <button class="secondary" type="button" onclick="tutupModal('editModal')">Batal</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- ============ BUAT MODAL VIEW (FULL NOTE) ============ -->
+    <div class="modal-backdrop hide" id="viewModal">
+      <div class="modal card view-modal">
+        <div class="modal-title">
+          <h3 id="viewNoteTitle">Detail Catatan</h3>
+          <button class="iconbtn" data-close-view>✕</button>
+        </div>
+
+        <div class="small muted" id="viewNoteMeta" style="margin: 6px 0 10px"></div>
+
+        <div class="view-body" id="viewNoteBody"></div>
+
+        <div class="row" style="justify-content: flex-end; margin-top: 12px">
+          <button class="secondary" type="button" data-close-view>Tutup</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ BUAT MODAL PROFIL (CUMA SEKALI) ============ -->
+    <div class="modal-backdrop hide" id="profileModal">
+      <div class="modal card profile-modal">
+        <div class="modal-title">
+          <h3>Profil Saya</h3>
+          <button class="iconbtn" data-close-profile>✕</button>
+        </div>
+
+        <div class="profile-wrap">
+          <div class="profile-left">
+            <img id="profileAvatarLarge" class="profile-avatar-large" src="assets/avatar.jpeg" alt="avatar" />
+
+            <label class="small muted" style="margin-top: 8px">Foto Profil</label>
+            <input type="file" id="profilePhotoInput" accept="image/*" />
+
+            <button id="removePhotoBtn" class="danger" type="button">Hapus Foto Profil</button>
+          </div>
+
+          <form id="profileForm" class="profile-right">
+            <label>Username</label>
+            <input id="profileUsername" required />
+
+            <label>Email</label>
+            <input id="profileEmail" type="email" required />
+
+            <label>Password Baru (opsional)</label>
+            <input id="profilePassword" type="password" placeholder="Kosongkan jika tidak diubah" />
+
+            <label>Konfirmasi Password Baru</label>
+            <input id="profilePassword2" type="password" placeholder="Ulangi password baru" />
+
+            <div class="row" style="justify-content: flex-end; margin-top: 10px">
+              <button type="submit">Simpan Perubahan</button>
+              <button type="button" class="secondary" data-close-profile>Batal</button>
+            </div>
+
+            <div id="profileFeedback" class="feedback hide"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>

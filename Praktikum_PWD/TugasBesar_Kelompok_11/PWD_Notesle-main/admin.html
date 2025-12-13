@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>NotesApp — Admin</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="grid-bg">
+
+<header class="topbar">
+  <div class="brand">
+    <div class="logo"></div>
+    <div class="brand-text">
+      <div class="brand-title">Admin Dashboard</div>
+      <div class="brand-sub">Notesle</div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <div class="actions">
+    <button class="iconbtn" id="themeToggle" title="Toggle theme">🌙</button>
+    
+    <button class="secondary" onclick="loadDashboard()">🔄 Refresh</button>
+    <button class="danger" id="logoutBtn">Logout</button>
+  </div>
+  </div>
+</header>
+
+<main class="container">
+  <section class="card">
+    <h3>📊 Ringkasan Sistem</h3>
+    <div class="kpi">
+      <div class="kpi-card">
+        <div class="small muted">Total Pengguna</div>
+        <div class="kpi-num" id="countUsers">0</div>
+      </div>
+      <div class="kpi-card">
+        <div class="small muted">Total Catatan</div>
+        <div class="kpi-num" id="countNotes">0</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h3>👥 Manajemen Users</h3>
+    <div style="overflow-x: auto;">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Jml Notes</th>
+            <th style="text-align: right;">Aksi</th>
+          </tr>
+        </thead>
+        <tbody id="usersTable"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="card">
+    <h3>📝 Moderasi Catatan</h3>
+    <div style="overflow-x: auto;">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>User</th>
+            <th>Judul</th>
+            <th>Dibuat</th>
+            <th style="text-align: right;">Aksi</th>
+          </tr>
+        </thead>
+        <tbody id="notesTable"></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<script src="admin.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>NotesApp — Login / Register</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="grid-bg">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo"></div>
+
+        <div class="brand-text">
+          <div class="brand-title">Notesle</div>
+        </div>
+      </div>
+      <div class="actions">
+        <button class="iconbtn" id="themeToggle" title="Toggle theme">🌙</button>
+      </div>
+    </header>
+
+    <main class="auth-shell">
+      <section class="hero-card">
+        <h1>Catat ide dengan mudah.</h1>
+        <p class="small">Simpan ide dan rencana kamu dengan cepat.</p>
+
+        <div class="chips">
+          <div class="chip">📝 Create Notes</div>
+          <div class="chip green">📍 Location Tag</div>
+          <div class="chip yellow">🔎 Instant Search</div>
+          <div class="chip blue">👤 Profile</div>
+        </div>
+      </section>
+
+      <section class="auth-card" id="registerCard">
+        <h2>Daftar Akun</h2>
+
+        <form id="registerForm">
+          <label>Username</label>
+          <input id="regUsername" required />
+
+          <label>Email</label>
+          <input id="regEmail" type="email" required />
+
+          <label>Password</label>
+          <input id="regPassword" type="password" required minlength="6" />
+
+          <button type="submit">Daftar</button>
+          <div id="registerFeedback" class="feedback"></div>
+
+          <p class="small" style="margin-top: 8px">
+            Sudah punya akun?
+            <a href="#" id="toLogin">Login sekarang</a>
+          </p>
+        </form>
+      </section>
+
+      <section class="auth-card hide" id="loginCard">
+        <h2>Login</h2>
+        <p class="small">Masuk untuk melihat catatanmu.</p>
+
+        <form id="loginForm">
+          <label>Email</label>
+          <input id="loginEmail" type="email" required />
+
+          <label>Password</label>
+          <input id="loginPassword" type="password" required minlength="6" />
+
+          <button type="submit">Login</button>
+          <div id="loginFeedback" class="feedback"></div>
+
+          <p class="small" style="margin-top: 8px">
+            Belum punya akun?
+            <a href="#" id="toRegister">Daftar</a>
+          </p>
+        </form>
+      </section>
+    </main>
+
+    <script src="auth.js" defer></script>
+  </body>
+</html>
